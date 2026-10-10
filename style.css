@@ -1,0 +1,35 @@
+:root {
+      --ink: #172225;
+      --muted: #64706f;
+      --paper: #f5f7f5;
+      --line: #dce4df;
+      --forest: #17483e;
+      --mint: #d9f0e5;
+      --sun: #f8c659;
+      --coral: #dc6a52;
+    }
+    * { box-sizing: border-box; }
+    body { font-family: "DM Sans", sans-serif; color: var(--ink); }
+    .display-font { font-family: "Fraunces", serif; }
+    .app-shell { width: 100%; min-height: calc(100 * min(var(--vh, 1vh), 1vh)); }
+    .grain {
+      background-image: radial-gradient(rgba(23,72,62,.11) .7px, transparent .7px);
+      background-size: 11px 11px;
+    }
+    .task-card { transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease; }
+    .task-card:hover { transform: translateY(-2px); box-shadow: 0 14px 28px rgba(23, 34, 37, .08); }
+    .task-card.is-focus { border-color: #f2b93e; box-shadow: 0 0 0 3px rgba(248,198,89,.3); }
+    .filter-button[aria-pressed="true"] { background: var(--forest); color: white; box-shadow: 0 4px 12px rgba(23,72,62,.22); }
+    .priority-high { background: #fee5df; color: #a83b28; }
+    .priority-medium { background: #fff1c8; color: #895900; }
+    .priority-low { background: #dff2eb; color: #20715e; }
+    .check-control:checked + span { background: var(--forest); border-color: var(--forest); color: white; }
+    .check-control:checked ~ .task-main { opacity: .55; text-decoration: line-through; }
+    .reveal { animation: rise .48s ease both; }
+    @keyframes rise { from { opacity:0; transform:translateY(12px); } to { opacity:1; transform:translateY(0); } }
+    button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
+      outline: 3px solid rgba(248,198,89,.85); outline-offset: 2px;
+    }
+    @media (max-width: 640px) {
+      .summary-grid { grid-template-columns: 1fr; }
+    }
